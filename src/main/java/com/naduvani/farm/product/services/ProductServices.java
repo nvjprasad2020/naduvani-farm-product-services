@@ -7,8 +7,6 @@ import com.naduvani.farm.product.repository.ProductRepository;
 import lombok.Data;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @Data
 public class ProductServices {
