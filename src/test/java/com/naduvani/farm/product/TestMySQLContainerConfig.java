@@ -20,7 +20,6 @@ public class TestMySQLContainerConfig {
     static {
         mysqlContainer.start();
     }
-
     @Bean
     @Primary
     public DataSource dataSource() {

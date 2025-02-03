@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 @ContextConfiguration(classes = {TestMySQLContainerConfig.class})
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/features")
+@CucumberOptions(features = "src/acceptanceTest/resources/features")
 @CucumberContextConfiguration
 @SpringBootTest
 public class CucumberTest {

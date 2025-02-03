@@ -36,6 +36,7 @@ public class ProductSteps {
     @Then("I should receive a product with id {string}, name {string}, price {float} and category {string}")
     public void i_should_receive_a_product_with_id_name_price_and_category(
             String id, String name, float price, String category) {
+        System.out.println(" Asserting values fetched via service");
         Assertions.assertEquals(id, retrievedProduct.getProductId());
         Assertions.assertEquals(name, retrievedProduct.getName());
         Assertions.assertEquals(price, retrievedProduct.getPrice(), 0.01);

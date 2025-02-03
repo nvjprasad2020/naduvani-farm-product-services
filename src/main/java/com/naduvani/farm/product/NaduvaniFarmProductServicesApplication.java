@@ -11,20 +11,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "com.naduvani.farm")
 @RequiredArgsConstructor
 public class NaduvaniFarmProductServicesApplication implements CommandLineRunner {
+
+	private final ProductRepository productRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(NaduvaniFarmProductServicesApplication.class, args);
 	}
 
-	private final ProductRepository productRepository;
-
-
 	@Override
 	public void run(String... args) throws Exception {
-//		productRepository.deleteAll();
-//		Product product1 = new Product("PRD_001", "Snake Plant", 12, Category.PLANT_INDOOR);
-//		Product product2 = new Product("PRD_002", "Orchid", 15, Category.PLANT_INDOOR);
-//		productRepository.save(product1);
-//		productRepository.save(product2);
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		productRepository.deleteAll();
+		Product product1 = new Product("PRD_001", "Snake Plant", 12, Category.PLANT_INDOOR);
+		Product product2 = new Product("PRD_002", "Orchid", 15, Category.PLANT_INDOOR);
+		productRepository.save(product1);
+		productRepository.save(product2);
 	}
 }
