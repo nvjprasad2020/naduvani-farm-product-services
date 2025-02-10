@@ -43,7 +43,6 @@ ProductServices {
                 .toList();
     }
 
-    @CachePut(value = "productCache", key = "#requestDto.productId")
     public ProductResponseDto createProduct(ProductRequestDto requestDto) {
         Product p = new Product(
                 requestDto.getProductId(),
@@ -51,11 +50,13 @@ ProductServices {
                 requestDto.getPrice(),
                 requestDto.getCategory());
         Product product = repository.save(p);
-        return new ProductResponseDto(
+        ProductResponseDto responseDto =  new ProductResponseDto(
                 product.getProductId(),
                 product.getName(),
                 product.getPrice(),
                 product.getCategory());
+        log.info("Adding product to cache: {}", responseDto.getProductId() );
+        return cacheProduct(responseDto);
     }
 
     @CacheEvict(value = "productCache", allEntries = true)
@@ -66,5 +67,9 @@ ProductServices {
     @CacheEvict(value = "productCache", key = "#productId", condition = "#productId != null")
     public void deleteProductById(String productId) {
         repository.deleteAll();
+    }
+    @CachePut(value = "productCache", key = "#response.productId")
+    public ProductResponseDto cacheProduct(ProductResponseDto response) {
+        return response;
     }
 }
