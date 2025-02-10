@@ -7,9 +7,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
-@SpringBootApplication(scanBasePackages = "com.naduvani.farm")
+@SpringBootApplication
 @RequiredArgsConstructor
+@EnableCaching
 public class NaduvaniFarmProductServicesApplication implements CommandLineRunner {
 
 	private final ProductRepository productRepository;

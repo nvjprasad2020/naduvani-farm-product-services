@@ -19,7 +19,8 @@ class ProductServicesTest {
     void givenProductId_whenGetProductById_thenReturnProductResponseDto() {
         String validProductId = "PRD_001";
         ProductRepository repository = Mockito.mock(ProductRepository.class);
-        Product expectedProduct = new Product(validProductId, "Snake Plant", 12, Category.PLANT_INDOOR);
+        Product expectedProduct =
+                new Product(validProductId, "Snake Plant", 12, Category.PLANT_INDOOR);
         when(repository.findById(validProductId))
                 .thenReturn(Optional.of(expectedProduct));
         ProductServices productServices = new ProductServices(repository);
