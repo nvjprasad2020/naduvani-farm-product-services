@@ -14,6 +14,6 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 @ConfigurationParameter(key =  GLUE_PROPERTY_NAME , value = "com.naduvani.farm.product.steps")
 @ConfigurationParameter(key = FEATURES_PROPERTY_NAME, value = "classpath:features")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "html:target/cucumber-reports.html")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-reports.html")
 public class ProductServiceAcceptanceTest {
 }
